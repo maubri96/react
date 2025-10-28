@@ -1,17 +1,23 @@
-import React from 'react'
 
-//const Button = () =>{
-    //return (
-    //    <button>Soy un boton</button>
-  //  )
-//}
-function manejarClic (event) {console.log(event)}
+import { useState } from "react"
 
-export const ContadorApps = () => {
+export const ContadorApps = ({value}) => {
+
+    const [ contador, setContador] = useState(value)
+
+const  manejarClic  = () => {
+    setContador(contador + 1)
+
+    }
+
+
   return (
-    <h1>Contador: </h1>,
-    <button onClick={(event) => manejarClic(event)  }>
+    <>
+    <h1>Contador: </h1>
+    <p>{contador}</p>
+    <button onClick={manejarClic}>
         Soy un boton
     </button>
-  )
-}
+    </>
+  );
+};
